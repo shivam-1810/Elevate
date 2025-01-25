@@ -47,7 +47,8 @@ class _MyCollegeMatesState extends State<MyCollegeMates> {
   Future<void> _getAllStudents() async {
     try {
       final response = await http.get(
-        Uri.parse('$api/student-details/college?collegeId=${widget.collegeId}'),
+        Uri.parse(
+            '$api/student-details/college/verified?collegeId=${widget.collegeId}'),
         headers: {
           'Authorization': 'Bearer $authToken',
         },

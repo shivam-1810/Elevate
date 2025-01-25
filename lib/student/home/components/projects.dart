@@ -32,12 +32,15 @@ class ProjectCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
+                Expanded(
+                  child: Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
+                    ),
+                    softWrap: true,
                   ),
                 ),
               ],
@@ -153,9 +156,7 @@ class _ProjectDetailsCardState extends State<ProjectDetailsCard> {
                 title: details['title'] ?? 'N/A',
                 completionDate: details['completionDate'] ?? 'N/A',
                 description: details['description'] ?? 'N/A',
-                onEdit: () {
-                  // Define your edit logic here
-                },
+                onEdit: () {},
               ),
             ),
           ],

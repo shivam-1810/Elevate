@@ -43,7 +43,8 @@ class _AdminHomeState extends State<AdminHome> {
   Future<void> _getAllStudents() async {
     try {
       final response = await http.get(
-        Uri.parse('$api/student-details/college?collegeId=${widget.collegeId}'),
+        Uri.parse(
+            '$api/student-details/college/verified?collegeId=${widget.collegeId}'),
       );
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);

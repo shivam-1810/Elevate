@@ -307,7 +307,7 @@ class _MainCardState extends State<MainCard> {
                 color: Colors.black87,
                 fontSize: 16,
               ),
-              textAlign: TextAlign.left,
+              textAlign: TextAlign.right,
               softWrap: true,
               overflow: TextOverflow.visible,
             ),

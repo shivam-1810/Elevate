@@ -46,6 +46,7 @@ class _StudentLoginState extends State<StudentLogin> {
         final token = responseData['token'];
         final prefs = await SharedPreferences.getInstance();
         await prefs.setString('authToken', token);
+        await prefs.setInt('userId', userId);
         setState(() {
           _isProcessing = false;
         });

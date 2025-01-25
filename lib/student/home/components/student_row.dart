@@ -1,4 +1,4 @@
-import 'package:elevate/viewableProfile/viewable_profile.dart';
+import 'package:elevate/viewableProfile/viewable_premium_profile.dart';
 import 'package:flutter/material.dart';
 
 class StudentRow extends StatelessWidget {
@@ -28,9 +28,8 @@ class StudentRow extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => ViewableProfile(
+            builder: (context) => ViewablePremiumProfile(
                   userId: userId,
-                  viewerRole: 'Student',
                 )));
       },
       child: Container(

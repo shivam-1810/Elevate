@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:elevate/begin/login_options.dart';
+import 'package:elevate/student/home/base_page.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -14,10 +16,13 @@ class SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Offset> _offsetAnimation;
+  bool _sessionExists = false;
+  int? _userId;
 
   @override
   void initState() {
     super.initState();
+    _checkAuthStatus();
 
     _controller = AnimationController(
       duration: const Duration(milliseconds: 800),
@@ -38,11 +43,34 @@ class SplashScreenState extends State<SplashScreen>
 
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) => const LoginOptions()),
-        );
+        _navigate();
       }
     });
+  }
+
+  Future<void> _checkAuthStatus() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String? authToken = prefs.getString('authToken');
+    final int? userId = prefs.getInt('userId');
+
+    if (authToken != null && userId != null) {
+      setState(() {
+        _sessionExists = true;
+        _userId = userId;
+      });
+    }
+  }
+
+  void _navigate() {
+    if (_sessionExists && _userId != null) {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => BasePage(userId: _userId!)),
+      );
+    } else {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => const LoginOptions()),
+      );
+    }
   }
 
   @override

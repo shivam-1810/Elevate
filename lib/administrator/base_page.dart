@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:elevate/administrator/pages/add_recruiter.dart';
 import 'package:elevate/administrator/pages/admin_home.dart';
+import 'package:elevate/administrator/pages/manage_students.dart';
 import 'package:elevate/administrator/pages/my_college.dart';
 import 'package:elevate/api.dart';
 import 'package:elevate/begin/login_options.dart';
@@ -58,6 +59,9 @@ class _BasePageState extends State<BasePage> {
         MyCollegePage(
           collegeId: widget.collegeId,
           collegeName: collegeName,
+        ),
+        StudentVerificationPage(
+          collegeId: widget.collegeId,
         ),
       ];
     });
@@ -118,14 +122,23 @@ class _BasePageState extends State<BasePage> {
                       fontSize: 20,
                     ),
                   )
-                : const Text(
-                    'Recruiter Management',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
-                  ),
+                : (_currentPageIndex == 1)
+                    ? const Text(
+                        'Recruiter Management',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      )
+                    : const Text(
+                        'Student Management',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
       ),
       body: _pages.isEmpty
           ? const Center(
@@ -143,11 +156,12 @@ class _BasePageState extends State<BasePage> {
         items: const [
           Icon(Icons.school_rounded, color: Colors.white),
           Icon(Icons.person_add_alt_1, color: Colors.white),
-          Icon(Icons.person_rounded, color: Colors.white),
+          Icon(Icons.account_balance, color: Colors.white),
+          Icon(Icons.manage_accounts, color: Colors.white),
           Icon(Icons.logout, color: Colors.white)
         ],
         onTap: (index) {
-          if (index == 3) {
+          if (index == 4) {
             _showLogoutDialog();
           } else {
             setState(() {

@@ -72,6 +72,7 @@ class _BasePageState extends State<BasePage> {
   Future<void> _logout(BuildContext context) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.remove('authToken');
+    await prefs.remove('userId');
     if (context.mounted) {
       Navigator.pushAndRemoveUntil(
           context,

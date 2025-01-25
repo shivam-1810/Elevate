@@ -57,6 +57,7 @@ class AdditionalLinksCard extends StatelessWidget {
                               color: Colors.black87,
                               fontSize: 16,
                             ),
+                            softWrap: true,
                           ),
                         ),
                       ],

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:elevate/student/home/base_page.dart';
 import 'package:intl/intl.dart';
 import 'package:elevate/api.dart';
 import 'package:elevate/student/detail_forms/additional_links.dart';
@@ -208,6 +209,29 @@ class _CertificationsDetailsFormState extends State<CertificationsDetailsForm> {
                     ),
                   ),
                 ),
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                "Wanna fill the details later?",
+                style: TextStyle(color: Colors.white60, fontSize: 15),
+              ),
+              GestureDetector(
+                onTap: () {
+                  _shortcut(context);
+                },
+                child: _creating
+                    ? const CircularProgressIndicator(
+                        valueColor:
+                            AlwaysStoppedAnimation<Color>(Colors.blueAccent),
+                      )
+                    : const Text(
+                        "Click here to skip!",
+                        style: TextStyle(
+                          color: Colors.blueAccent,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
               ),
             ],
           ),
@@ -419,5 +443,73 @@ class _CertificationsDetailsFormState extends State<CertificationsDetailsForm> {
         ],
       ),
     );
+  }
+
+  bool _certification = false;
+  bool _creating = false;
+  bool _links = false;
+
+  Future<void> _shortcut(BuildContext context) async {
+    setState(() {
+      _creating = true;
+    });
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? token = prefs.getString('authToken');
+    final List<Map<String, dynamic>> certificationDetails = [
+      {
+        "title": "N/A",
+        "date": "2025-06-01",
+        "description": "N/A",
+        "link": "N/A"
+      }
+    ];
+
+    try {
+      final response = await http.post(
+        Uri.parse('$api/certification/add-multiple/${widget.userId}'),
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer $token'
+        },
+        body: jsonEncode(certificationDetails),
+      );
+      if (response.statusCode == 200) {
+        _certification = true;
+      } else {
+        _showDialog("Error", 'Error occurred. Please try again later.');
+        return;
+      }
+    } catch (e) {
+      _showDialog("Error", "An unexpected error occurred.");
+      return;
+    }
+    try {
+      var linksResponse = await http.post(
+        Uri.parse('$api/additional-details/add/${widget.userId}'),
+        headers: {
+          'Authorization': 'Bearer $token',
+          'Content-Type': 'application/json',
+        },
+        body: jsonEncode(
+          [],
+        ),
+      );
+
+      if (linksResponse.statusCode == 200) {
+        _links = true;
+      } else {
+        _showDialog("Error", "Error occurred. Please try again later.");
+      }
+    } catch (e) {
+      _showDialog("Error", "An unexpected error occurred.");
+    }
+    setState(() {
+      _creating = false;
+    });
+
+    if (_certification && _links && context.mounted) {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => BasePage(userId: widget.userId)));
+    }
   }
 }

@@ -34,18 +34,21 @@ class CertificateCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
+                Expanded(
+                  child: Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
+                    ),
+                    softWrap: true,
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 8),
-            _buildField('Date of Certification', dateOfCertification),
+            _buildField('Certification Date', dateOfCertification),
             _buildField('Description', description),
             _buildField('Link', link),
           ],

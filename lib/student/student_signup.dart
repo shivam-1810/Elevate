@@ -55,6 +55,7 @@ class _StudentSignupState extends State<StudentSignup> {
         try {
           final prefs = await SharedPreferences.getInstance();
           await prefs.setString('authToken', token);
+          await prefs.setInt('userId', userId);
         } catch (e) {
           // ignore: avoid_print
           print('Failed to save authentication token: $e');

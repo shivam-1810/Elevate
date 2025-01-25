@@ -262,6 +262,20 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           AdditionalLinksCard(
               userId: widget.userId, links: links, onViewResume: onViewResume),
+          const SizedBox(height: 16),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: const Text(
+              'Incase your data isn\'t being shown in the student list, don\'t worry! It means you are yet to be verified by the college. Contact your college admin to resolve the issue!',
+              style: TextStyle(
+                color: Color.fromARGB(255, 203, 180, 188),
+                fontStyle: FontStyle.italic,
+                fontSize: 14,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          const SizedBox(height: 12)
         ],
       ),
     );
@@ -404,6 +418,9 @@ class _MainCardState extends State<MainCard> {
                 color: Colors.black87,
                 fontSize: 16,
               ),
+              textAlign: TextAlign.right,
+              softWrap: true,
+              overflow: TextOverflow.visible,
             ),
           ),
         ],
