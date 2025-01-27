@@ -148,7 +148,7 @@ class _ViewableProfileState extends State<ViewableProfile> {
                     .toList()
                 : [];
 
-            links = data['additionalLinks'] != null
+            links = data['additionalDetails'] != null
                 ? ((data['additionalDetails']['additionalLinks'] as List?)
                         ?.map((e) => e.toString())
                         .toList() ??
@@ -422,7 +422,7 @@ class _MainCardState extends State<MainCard> {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.5),
+              color: Colors.black.withAlpha((0.5 * 255).toInt()),
               blurRadius: 15,
               offset: const Offset(0, 5),
             ),

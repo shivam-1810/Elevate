@@ -214,7 +214,8 @@ class _MyCollegePageState extends State<MyCollegePage> {
                                 child: Text(
                                   'No Image Available',
                                   style: TextStyle(
-                                    color: Colors.white.withOpacity(0.8),
+                                    color: Colors.white
+                                        .withAlpha((0.8 * 255).toInt()),
                                     fontSize: 16,
                                   ),
                                 ),
@@ -415,7 +416,7 @@ class _MyCollegePageState extends State<MyCollegePage> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.2),
+            color: Colors.black.withAlpha((0.2 * 255).toInt()),
             blurRadius: 8,
             offset: const Offset(0, 4),
           ),

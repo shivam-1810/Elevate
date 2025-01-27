@@ -134,7 +134,7 @@ class _CollegeInfoState extends State<CollegeInfo> {
                     child: Text(
                       'No Image Available',
                       style: TextStyle(
-                        color: Colors.black.withOpacity(0.8),
+                        color: Colors.black.withAlpha((0.8 * 255).toInt()),
                         fontSize: 16,
                       ),
                     ),
@@ -276,7 +276,8 @@ class _CollegeInfoState extends State<CollegeInfo> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: const Color.fromARGB(255, 94, 105, 102).withOpacity(0.3),
+            color: const Color.fromARGB(255, 94, 105, 102)
+                .withAlpha((0.3 * 255).toInt()),
             blurRadius: 8,
             offset: const Offset(0, 4),
           ),

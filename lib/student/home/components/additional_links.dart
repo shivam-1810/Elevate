@@ -82,7 +82,7 @@ class AdditionalLinksCard extends StatelessWidget {
               const SizedBox(height: 14),
               ElevatedButton.icon(
                 onPressed: onViewResume,
-                icon: const Icon(Icons.picture_as_pdf),
+                icon: const Icon(Icons.picture_as_pdf, color: Colors.white),
                 label: const Text('View Resume'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 255, 87, 87),

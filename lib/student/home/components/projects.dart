@@ -119,7 +119,7 @@ class _ProjectDetailsCardState extends State<ProjectDetailsCard> {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.3),
+              color: Colors.black.withAlpha((0.3 * 255).toInt()),
               blurRadius: 10,
               offset: const Offset(0, 5),
             ),

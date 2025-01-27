@@ -236,7 +236,7 @@ class _AdditionalLinksFormState extends State<AdditionalLinksForm> {
                     ),
                     borderRadius: BorderRadius.circular(15),
                     border: Border.all(
-                      color: Colors.white.withOpacity(0.3),
+                      color: Colors.white.withAlpha((0.3 * 255).toInt()),
                       width: 1,
                     ),
                   ),

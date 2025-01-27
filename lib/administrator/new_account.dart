@@ -41,7 +41,7 @@ class NewAccount extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(15.0),
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade800.withOpacity(0.8),
+                  color: Colors.grey.shade800.withAlpha((0.8 * 255).toInt()),
                   borderRadius: BorderRadius.circular(15),
                   border: Border.all(
                     color: Colors.grey.shade400,

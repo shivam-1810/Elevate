@@ -281,7 +281,8 @@ class _PersonalDetailsFormState extends State<PersonalDetailsForm> {
                           color: const Color.fromARGB(255, 215, 167, 105),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withOpacity(0.3),
+                              color:
+                                  Colors.black.withAlpha((0.3 * 255).toInt()),
                               blurRadius: 4,
                               offset: const Offset(2, 2),
                             ),
@@ -318,7 +319,7 @@ class _PersonalDetailsFormState extends State<PersonalDetailsForm> {
                       ),
                       borderRadius: BorderRadius.circular(15),
                       border: Border.all(
-                        color: Colors.white.withOpacity(0.3),
+                        color: Colors.white.withAlpha((0.3 * 255).toInt()),
                         width: 1,
                       ),
                     ),

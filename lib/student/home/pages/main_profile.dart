@@ -330,7 +330,7 @@ class _MainCardState extends State<MainCard> {
               borderRadius: BorderRadius.circular(20),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.5),
+                  color: Colors.black.withAlpha((0.5 * 255).toInt()),
                   blurRadius: 15,
                   offset: const Offset(0, 5),
                 ),

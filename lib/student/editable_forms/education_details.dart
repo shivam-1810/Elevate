@@ -39,7 +39,8 @@ class _EducationDetailsFormState extends State<EducationDetailsForm> {
                 ? (data['educationDetails']['educations'] as List)
                     .map<Map<String, String>>((e) => {
                           'degree': e['degree']?.toString() ?? 'N/A',
-                          'field': e['fieldOfEducation']?.toString() ?? 'N/A',
+                          'fieldOfEducation':
+                              e['fieldOfEducation']?.toString() ?? 'N/A',
                           'startYear': e['startYear']?.toString() ?? 'N/A',
                           'endYear': e['endYear']?.toString() ?? 'N/A',
                           'institute': e['institute']?.toString() ?? 'N/A',
@@ -154,7 +155,7 @@ class _EducationDetailsFormState extends State<EducationDetailsForm> {
                       ),
                       borderRadius: BorderRadius.circular(15),
                       border: Border.all(
-                        color: Colors.white.withOpacity(0.3),
+                        color: Colors.white.withAlpha((0.3 * 255).toInt()),
                         width: 1,
                       ),
                     ),

@@ -43,7 +43,7 @@ class StudentRow extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: gradientColors.last.withOpacity(0.6),
+              color: gradientColors.last.withAlpha((0.6 * 255).toInt()),
               offset: const Offset(0, 2),
               blurRadius: 5,
             ),
