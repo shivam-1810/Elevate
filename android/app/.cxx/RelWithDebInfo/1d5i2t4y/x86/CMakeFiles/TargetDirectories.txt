@@ -1,0 +1,2 @@
+D:/Elevate/elevate/android/app/.cxx/RelWithDebInfo/1d5i2t4y/x86/CMakeFiles/edit_cache.dir
+D:/Elevate/elevate/android/app/.cxx/RelWithDebInfo/1d5i2t4y/x86/CMakeFiles/rebuild_cache.dir
