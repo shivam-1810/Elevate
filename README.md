@@ -35,6 +35,14 @@ This app is available on both **Android** and **iOS**, built using **Flutter** f
 
 ---
 
+## 📥 Download & Check the App
+
+You can download the app for both **Android** and **iOS** using the link below:
+
+🔗 **[Download Elevate](https://docs.google.com/uc?export=download&id=1jWBC5n_oPKmzfw7vZeZreJAh1YoTP5Vm)**  
+
+---
+
 ## 🛠️ Installation Guide
 
 Follow these steps to set up the project locally:
@@ -56,7 +64,8 @@ Follow these steps to set up the project locally:
     flutter run
     ```
 
-   Note that the backend of this is in a seperate repository and this is only the frontend repository.
+   Note that the backend of this is in a separate repository and this is only the frontend repository.
+
 ---
 
 ## ✨ Contributing
